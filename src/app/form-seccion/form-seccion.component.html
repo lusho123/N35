@@ -1,0 +1,13 @@
+<form [formGroup]="formulario" (ngSubmit)= "crearCatalogo()">
+    <div class="row fila">
+        <div class="col-12 col-md-2 align-self-center">
+            Nuevo Catálogo
+        </div>
+        <div class="col-12 col-md-8">
+            <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripción Catálogo" required>
+        </div>
+        <div class="col-12 m col-md-2 mt-2 mt-md-0">
+            <button class="btn btn-primary btn-block" role="button">Agregar</button> 
+        </div>
+    </div>
+</form>

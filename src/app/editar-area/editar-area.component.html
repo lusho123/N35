@@ -1,0 +1,95 @@
+<h3 class="mt-3">
+    Editar Catalgo
+  </h3>
+  <input type="checkbox" checked data-toggle="toggle">
+  <form class="mt-3" [formGroup]="formulario" (ngSubmit)= "modificarCatalogo()">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-striped" *ngIf="catalogo">
+          <thead>
+            <th></th>
+            <th>Datos Actuales</th>
+            <th>Modificar</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="w-25">
+                <label>Descripcion</label>
+              </th>
+              <td><span>{{ catalogo.descripcion }}</span></td>
+              <td>
+                <input type="text" class="form-control" formControlName="descripcion">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="w-25">
+                <label>Fecha de Alta</label>
+              </th>
+              <td>
+                <span>{{ formatoFecha(catalogo.fechaAlta)}}</span>
+              </td>
+              <td>
+                <span>{{formatoFecha(catalogo.fechaAlta)}}</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="w-25">
+                <label>Fecha de Modificacion</label>
+              </th>
+              <td>
+                <span>{{ formatoFecha(catalogo.fechaModificacion) }}</span>
+              </td>
+              <td>
+                <span>{{ fecha }}</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="w-25">
+                <label>Creador Catalogo</label>
+              </th>
+              <td>
+                <span>{{ catalogo.idUsuarioAlta }}</span>
+              </td>
+              <td>
+                <span>{{ catalogo.idUsuarioAlta }}</span>
+              </td>
+  
+            </tr>
+            <tr>
+              <th scope="row" class="w-25">
+                <label>Modifico Catalogo</label>
+              </th>
+              <td>
+                <span>{{ catalogo.idUsuarioModificacion }}</span>
+              </td>
+              <td><span>{{ id }}</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="w-25">
+                <label>Estatus Catalogo</label>
+              </th>
+              <td *ngIf="catalogo.idCatEstatus; else inactivo" class="w-25" scope="row">
+                <h4>
+                  <span class="badge badge-success">Activo  </span>
+                </h4>
+              </td>
+              <ng-template #inactivo>
+                  <td>
+                      <h4>
+                          <span class="badge badge-warning">Inactivo</span>
+                      </h4>
+                  </td>
+              </ng-template>
+              <td>
+                <button (click)="cambiarEstatus()" type="button" class="btn btn-primary">Cambiar Estatus</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 text-center mt-5">
+        <button class="btn btn-success btn-lg" type="submit">Modificar Datos</button>
+      </div>
+    </div>
+  </form>
+  

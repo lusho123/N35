@@ -1,0 +1,38 @@
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="custom-control custom-switch mb-3">
+            <input type="checkbox" class="custom-control-input" id="customSwitches" data-toggle="collapse" data-target="#ejemplo">
+            <label class="custom-control-label" for="customSwitches">Opciones de Busqueda</label>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="collapse" id="ejemplo">
+            <!-- <label for="bDescripcion"></label> -->
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="bDescripcion">Descripcion</label>
+                    <input class="form-control" type="text" name="bDescriocion" placeholder="Descripción">
+                </div>
+                <div class="col-12 col-md-3">
+                    <label for="bAlta">Fecha Alta</label>
+                    <input class="form-control" type="date" name="bAlta">
+                </div>
+                <div class="col-12 col-md-3">
+                    <label for="bModificacion">Fecha Modificacion</label>
+                    <input class="form-control" type="date" name="bModificacion">
+                </div>
+                <div class="col-12 col-md-2">
+                    <label for="bEstatus">Estatus</label>
+                    <select name="bEstatus" class="form-control">
+                        <option value="1">Inactivo</option>
+                        <option value="0">Activo</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-1 align-self-end mt-2 mt-md-0">
+                    <!-- <button class="btn btn-primary btn-block"><i class="fas fa-search"></i></button> -->
+                    <button class="btn btn-primary btn-block">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

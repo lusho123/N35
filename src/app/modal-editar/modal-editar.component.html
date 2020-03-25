@@ -1,0 +1,137 @@
+<div class="container boton1">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" (click)="bandera = true">Open Modal</button>
+
+  <!-- Modal -->
+  <div *ngIf="bandera">
+    <div id="Modal" class="modal fade show" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Header</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" (click)="bandera = !bandera">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+  </div>
+
+
+</div>
+
+
+
+<div class="container boton2 mt-2">
+  <!-- Trigger the modal with a button -->
+  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal2" (click)="showModal = true">Open Modal</button> -->
+  <button type="button" class="btn btn-info btn-lg" (click)="showModal = true">Open Modal</button>
+
+  <!-- Modal -->
+  <div id="Modal2" class="modal fade" role="dialog" [ngClass]="{'show': showModal}">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Header</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="showModal = false">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="fade" [ngClass]="{'show': showModal, 'modal-backdrop':  showModal}"></div>
+
+</div>
+
+<br><br>
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal 1</button>
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="showModal=true" data-target="#myModal" >Open Modal</button> -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" [ngClass]="{'show': showModa}">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Header</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-danger" (click)="showModal=false" onclick="cerrar()">Save</button> -->
+        <button type="button" class="btn btn-danger" onclick="cerrar()">Save</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <p>First focusable element within the modal window will receive focus upon opening.
+  This could be configured to focus any other element by adding an <code>ngbAutofocus</code> attribute on it.</p>
+  
+  <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">ngbAutofocus</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-danger<span class="token punctuation">"</span></span>
+        <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>modal.close(<span class="token punctuation">'</span>Ok click<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Ok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre>
+  
+  <br />
+  <button class="btn btn-outline-primary mr-2" (click)="open('focusFirst')">
+    <div>Open confirm modal</div>
+    <div class="text-dark" aria-hidden="true"><small>&times; button will be focused</small></div>
+  </button>
+  
+  <button class="btn btn-outline-primary" (click)="open('autofocus')">
+    <div>Open confirm modal with `ngbAutofocus`</div>
+    <div class="text-dark" aria-hidden="true"><small>Ok button will be focused</small></div>
+  </button> -->
+
+<!-- Large modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Editar Catalogo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      ...
+    </div>
+  </div>
+</div> -->
+
+<!-- Small modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div> -->

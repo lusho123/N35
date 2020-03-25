@@ -1,0 +1,44 @@
+<div class="row fila">
+    <div class="col">
+        <div class="card">
+            <div class="card-header text-center">
+                <div class="row">
+                    <div class="col-8 col-md-11">
+                        <h5>Catálogo de {{ tipo }}</h5>
+                    </div>
+                    <div class="col-4 col-md-1">
+                        <button (click)='obtenerCatalogos()' class="btn btn-primary"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Descripción</th>
+                        <th>Estatus</th>
+                        <th class="text-center">Editar</th>
+                        <th class="text-center">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let area of catalogo">
+                        <td>{{ area.id }}</td>
+                        <td>{{ area.descripcion }}</td>
+                        <td *ngIf="area.idCatEstatus; else inactivo"><span class="badge badge-success">Activo</span></td>
+                        <ng-template #inactivo>
+                            <td><span class="badge badge-warning">Inactivo</span></td>
+                        </ng-template>
+                        <td class="opcion text-center">
+                            <!-- <button class="btn btn-primary" (click)=editarCatalogo(area.id)><i class="fas fa-edit"></i></button> -->
+                            <a [routerLink]="[area.id]" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        </td>
+                        <td class="opcion text-center">
+                            <button class="btn btn-danger"  (click)='eliminarCatalogo(area.id)'><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ </div>

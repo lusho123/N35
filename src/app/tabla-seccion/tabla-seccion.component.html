@@ -1,0 +1,116 @@
+<div class="fila">
+    <!-- <div class="card">
+        <div class="card-header text-center">
+            <div class="row">
+                <div class="col-8 col-md-11"> -->
+                    <!-- <h5>Catálogo de {{ tipo }}</h5> -->
+                <!-- </div>
+                <div class="col-4 col-md-1"> -->
+                    <!-- <button (click)='obtenerCatalogos()' class="btn btn-primary"><i class="fas fa-sync-alt"></i></button> -->
+                <!-- </div>
+            </div>
+        </div> -->
+        <!-- Default switch -->
+    <hr class="mt-5 mb-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="custom-control custom-switch mb-3">
+                <input type="checkbox" class="custom-control-input" id="customSwitches" data-toggle="collapse" data-target="#ejemplo">
+                <label class="custom-control-label" for="customSwitches">Opciones de Busqueda</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="collapse" id="ejemplo">
+                <!-- <label for="bDescripcion"></label> -->
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <label for="bDescripcion">Descripcion</label>
+                        <input class="form-control" type="text" name="bDescriocion" placeholder="Descripción">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="bAlta">Fecha Alta</label>
+                        <input class="form-control" type="date" name="bAlta">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="bModificacion">Fecha Modificacion</label>
+                        <input class="form-control" type="date" name="bModificacion">
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <label for="bEstatus">Estatus</label>
+                        <select name="bEstatus" class="form-control">
+                            <option value="1">Inactivo</option>
+                            <option value="0">Activo</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-1 align-self-end mt-2 mt-md-0">
+                        <button class="btn btn-primary btn-block"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    
+    <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
+        <!-- <table class="table table-hover table-striped table-fixed"> -->
+        <div class="row">
+            <table class="table table-fixed">
+                    <thead>
+                        <tr>
+                            <th>Id 
+                                <i class="far fa-question-circle" data-toggle="tooltip" data-placement="right" title="Haz click en catálogo para ver las opciones"></i>
+                            </th>
+                            <th>Descripción</th>
+                            <th>Fecha Alta</th>
+                            <th>Fecha Modificación</th>
+                            <th>Nombre Creador</th>
+                            <th>Nombre Editor</th>
+                            <th>Estatus
+                                <i class="far fa-question-circle" data-toggle="tooltip" data-placement="left" title="El color del catálogo cambia de acuerdo a su estatus"></i>
+                            </th>
+                            <th class="text-center">Editar/Eliminar</th>
+                            <!-- <th class="text-center">Eliminar</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let seccion of catalogo"  (click)='alerta(seccion.id)' class="{{determinar(seccion.idCatEstatus)}}"> -->
+                        <!-- <tr *ngFor="let seccion of catalogo" (click)="cambiaIde(seccion.id)" class="{{determinar(seccion.idCatEstatus)}}" data-toggle="modal" data-target="#exampleModalCenter"> -->
+                        <!-- <tr *ngFor="let seccion of catalogo" (click)="this.ide = seccion.id; motrarEditar()" class="{{determinar(seccion.idCatEstatus)}}" data-toggle="modal" data-target="#modalP"> -->
+                        <!-- <tr *ngFor="let seccion of catalogo" (click)="this.ide = seccion.id; motrarEditar()" data-toggle="modal" data-target="#modalP"> -->
+                        <tr *ngFor="let seccion of catalogo" >
+                            <td>{{ seccion.id }}</td>
+                            <td>{{ seccion.descripcion }}</td>
+                            <td>{{ formatoFecha(seccion.fechaAlta) }}</td>
+                            <td>{{ formatoFecha(seccion.fechaModificacion) }}</td>
+                            <td> Luchito bb</td>
+                            <td *ngIf="seccion.idUsuarioModificacion; else noModificado"><span>Luchito bb</span></td>
+                            <ng-template #noModificado>
+                                <td>No modificado</td>
+                            </ng-template>
+                            <td *ngIf="seccion.idCatEstatus; else inactivo" class="">
+                                <span>Activo</span>
+                            </td>
+                            <ng-template #inactivo>
+                                <td><span>Inactivo</span></td>
+                            </ng-template>
+                            <td class="opcion text-center">
+                                <!-- <a [routerLink]="[seccion.id]" class="btn btn-primary"><i class="fas fa-edit"></i></a> -->
+                            <!-- </td>
+                            <td class="opcion text-center"> -->
+                                <button class="btn btn-primary" (click)="this.ide = seccion.id; motrarEditar()" data-toggle="modal" data-target="#modalP">Edi<i class="fas fa-trash"></i></button>
+                                <button class="btn btn-danger" (click)='eliminarCatalogo(seccion.id)'>Eli<i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    <!-- </div> -->
+ 
+    <hr class="mt-5">
+    <!-- </div> -->
+    <div>
+        
+        <app-editar-seccion [ide]="ide" (cat)="cat = $event"></app-editar-seccion>
+
+    </div>
+ </div>
