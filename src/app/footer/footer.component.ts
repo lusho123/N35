@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  anio: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.anio = new Date().getFullYear();
   }
 
 }

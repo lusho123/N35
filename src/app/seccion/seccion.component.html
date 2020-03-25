@@ -1,4 +1,17 @@
+<div class="row justify-content-end">
+    <div class="col">
+        <button class="btn btn-dark"onclick="window.print()">Imprimir</button>
+    </div>
+</div>
+
 <app-form-seccion (cat)="cata = $event"></app-form-seccion>
 
+<hr class="mt-5">
+
+<app-busqueda-seccion></app-busqueda-seccion>
+
+<hr class="mt-5">
 
 <app-tabla-seccion [cat]="cata"></app-tabla-seccion>
+
+<!-- <hr class="mt-5"> -->

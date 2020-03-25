@@ -16,7 +16,6 @@ export class TablaSeccionComponent implements OnInit {
   set cat(c: boolean) {
     if (c) {
       this.obtenerCatalogos();
-      Swal.fire('Correcto', 'Se ha modificado el Catálogo', 'success');
       this.editar = false;
     }
   }
@@ -36,6 +35,7 @@ export class TablaSeccionComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerCatalogos();
+    this.ide = 1;
   }
 
   obtenerCatalogos() {
@@ -56,8 +56,7 @@ export class TablaSeccionComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
-        this.urlDeleteCatalogo = `${this.urlDeleteCatalogo}/${id}`;
-        this.apiService.deleteCatalogo(this.urlDeleteCatalogo).subscribe(
+        this.apiService.deleteCatalogo(`${this.urlDeleteCatalogo}/${id}`).subscribe(
           res => {
             // if (res === 'success') {
               Swal.fire('El Catalogo ha sido eliminado', '', 'success');
@@ -90,7 +89,8 @@ export class TablaSeccionComponent implements OnInit {
     return "table-warning";
   }
 
-  motrarEditar() {
+  mostrarEditar(id: number) {
+    this.ide = id ;
     this.editar = true;
   }
 

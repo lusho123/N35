@@ -11,8 +11,7 @@
             </div>
         </div> -->
         <!-- Default switch -->
-    <hr class="mt-5 mb-5">
-    <div class="row mb-4">
+    <!-- <div class="row mb-4">
         <div class="col-12">
             <div class="custom-control custom-switch mb-3">
                 <input type="checkbox" class="custom-control-input" id="customSwitches" data-toggle="collapse" data-target="#ejemplo">
@@ -21,7 +20,7 @@
         </div>
         <div class="col-12">
             <div class="collapse" id="ejemplo">
-                <!-- <label for="bDescripcion"></label> -->
+                <label for="bDescripcion"></label>
                 <div class="row">
                     <div class="col-12 col-md-3">
                         <label for="bDescripcion">Descripcion</label>
@@ -48,13 +47,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    
      
     
-    <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
-        <!-- <table class="table table-hover table-striped table-fixed"> -->
-        <div class="row">
-            <table class="table table-fixed">
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-hover table-striped table-fixed table-resposive">
+        <!-- <div class="row"> -->
+            <!-- <table class="table table-fixed"> -->
                     <thead>
                         <tr>
                             <th>Id 
@@ -68,7 +68,7 @@
                             <th>Estatus
                                 <i class="far fa-question-circle" data-toggle="tooltip" data-placement="left" title="El color del catálogo cambia de acuerdo a su estatus"></i>
                             </th>
-                            <th class="text-center">Editar/Eliminar</th>
+                            <th class="text-center">Editar / Eliminar</th>
                             <!-- <th class="text-center">Eliminar</th> -->
                         </tr>
                     </thead>
@@ -82,8 +82,8 @@
                             <td>{{ seccion.descripcion }}</td>
                             <td>{{ formatoFecha(seccion.fechaAlta) }}</td>
                             <td>{{ formatoFecha(seccion.fechaModificacion) }}</td>
-                            <td> Luchito bb</td>
-                            <td *ngIf="seccion.idUsuarioModificacion; else noModificado"><span>Luchito bb</span></td>
+                            <td> Luis E. Cortés</td>
+                            <td *ngIf="seccion.idUsuarioModificacion; else noModificado"><span>Luis E. Cortés</span></td>
                             <ng-template #noModificado>
                                 <td>No modificado</td>
                             </ng-template>
@@ -97,16 +97,27 @@
                                 <!-- <a [routerLink]="[seccion.id]" class="btn btn-primary"><i class="fas fa-edit"></i></a> -->
                             <!-- </td>
                             <td class="opcion text-center"> -->
-                                <button class="btn btn-primary" (click)="this.ide = seccion.id; motrarEditar()" data-toggle="modal" data-target="#modalP">Edi<i class="fas fa-trash"></i></button>
-                                <button class="btn btn-danger" (click)='eliminarCatalogo(seccion.id)'>Eli<i class="fas fa-trash"></i></button>
+                                <button class="btn btn-primary mr-md-1 mr-lg-2" (click)="mostrarEditar(seccion.id)" data-toggle="modal" data-target="#modalP"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-danger" (click)='eliminarCatalogo(seccion.id)'><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
             </table>
-        </div>
-    <!-- </div> -->
+        <!-- </div> -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">..</a></li>
+              <li class="page-item"><a class="page-link" href="#">N</a></li>
+              <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+          </nav>
+    </div>
  
-    <hr class="mt-5">
+    
     <!-- </div> -->
     <div>
         

@@ -15,12 +15,11 @@ export class EditarSeccionComponent implements OnInit {
 
   @Input()
   set ide(ide: number) {
-    console.log('Input ' + ide);
     if (ide) {
       this.id = 1
       this.urlCatalogo = 'http://localhost:4000/api/getSeccion/' + ide;
       this.urlModificar = 'http://localhost:4000/api/putSeccion/' + ide;
-      this.urlParcial = 'http://localhost:4000/api/patchSeccion/' + ide;
+      // this.urlParcial = 'http://localhost:4000/api/patchSeccion/' + ide;
       this.obtenerCatalogo();
       this.bandera = false;
     }
@@ -49,7 +48,12 @@ export class EditarSeccionComponent implements OnInit {
 
   crearFormulario() {
     return new FormGroup({
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(30)])
+      descripcion: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5),
+        Validators.maxLength(30),
+        // Validators.pattern('[a-zA-Z0-9-_]{1,10}')
+      ])
     });
   }
 
@@ -79,39 +83,69 @@ export class EditarSeccionComponent implements OnInit {
 
 
   modificarCatalogo() {
-    if (this.formulario.value.descripcion) {
-      if (this.formulario.valid) {
-        this.catalogo.descripcion = this.formulario.value.descripcion;
-        this.catalogo.idUsuarioModificacion = this.id;
-        this.apiService.putCatalogo(this.urlModificar, this.catalogo).subscribe(
-          res => {
-            // this.router.navigate();
-            // this.router.navigate(['/catalogos/seccion']);
-            this.cat.emit(true);
-          },
-          error => {
-             Swal.fire('Error', 'No se ha modificado el Catálogo', 'error');
-          }
-        );
-      }
-    } else {
-      console.log('entre');
-      if (this.bandera) {
-        console.log(this.catalogo);
-        this.catalogo.idUsuarioModificacion = this.id;
-        this.apiService.patchCatalogo(this.urlParcial, this.catalogo).subscribe(
-          res => {
-            this.bandera = false;
-            this.cat.emit(true);
-          },
-          error => {
-             Swal.fire('Error', 'No se ha modificado el Catálogo', 'error');
-          }
-        );
-      }
-    }
+    Swal.fire({
+      title: 'Estas seguro que deseas editar catalogo?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, editar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      console.log(result.value + ' ' + this.formulario.valid);
+      if (this.formulario.valid && result.value) {
+          this.catalogo.descripcion = this.formulario.value.descripcion;
+          this.catalogo.idUsuarioModificacion = this.id;
+          this.apiService.putCatalogo(this.urlModificar, this.catalogo).subscribe(
+            res => {
+              // this.router.navigate();
+              // this.router.navigate(['/catalogos/seccion']);
+              Swal.fire('Correcto', 'Se ha modificado el Catálogo', 'success');
+              this.cat.emit(true);
+            },
+            error => {
+              Swal.fire('Error', 'No se ha modificado el Catálogo', 'error');
+            }
+          );
+        }
+    });
+    // if (this.formulario.value.descripcion) {
+    //   if (this.formulario.valid) {
+    //     this.catalogo.descripcion = this.formulario.value.descripcion;
+    //     this.catalogo.idUsuarioModificacion = this.id;
+    //     this.apiService.putCatalogo(this.urlModificar, this.catalogo).subscribe(
+    //       res => {
+    //         // this.router.navigate();
+    //         // this.router.navigate(['/catalogos/seccion']);
+    //         Swal.fire('Correcto', 'Se ha modificado el Catálogo', 'success');
+    //         this.cat.emit(true);
+    //       },
+    //       error => {
+    //          Swal.fire('Error', 'No se ha modificado el Catálogo', 'error');
+    //       }
+    //     );
+    //   }
+    // } 
+    // else {
+    //   console.log('entre');
+    //   if (this.bandera) {
+    //     console.log(this.catalogo);
+    //     this.catalogo.idUsuarioModificacion = this.id;
+    //     this.apiService.patchCatalogo(this.urlParcial, this.catalogo).subscribe(
+    //       res => {
+    //         this.bandera = false;
+    //         this.cat.emit(true);
+    //         Swal.fire('Correcto', 'Se ha modificado el Catálogo', 'success');
+    //       },
+    //       error => {
+    //          Swal.fire('Error', 'No se ha modificado el Catálogo', 'error');
+    //       }
+    //     );
+    //   }
+    // }
 
-    this.router.navigate(['/catalogos/seccion']);
+    // this.router.navigate(['/catalogos/seccion']);
   }
 
   getFecha(fecha: string) {

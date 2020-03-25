@@ -33,7 +33,12 @@ export class FormSeccionComponent implements OnInit {
 
   crearFormulario() {
     return new FormGroup({
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(100)])
+      descripcion: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5),
+        Validators.maxLength(100),
+        Validators.pattern('[a-zA-Z0-9-_]{1,10}')
+      ])
     });
   }
 
@@ -55,6 +60,7 @@ export class FormSeccionComponent implements OnInit {
         res => {
           if (res) {
             this.actualizar(true);
+            Swal.fire('Correcto', 'Se ha creado el Catálogo', 'success');
             this.limpiarFormulario();
           }
         },
@@ -66,9 +72,5 @@ export class FormSeccionComponent implements OnInit {
       Swal.fire('Error', 'Descripción no valida', 'error');
     }
   }
-
-
-
-
-
+  
 }
