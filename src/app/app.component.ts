@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CatalogosService} from './services/catalogos.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +6,5 @@ import { CatalogosService} from './services/catalogos.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Aplicacion';
-  // constructor(public json: CatalogosService) {
-  //   this.json.getJson('/getSecciones').subscribe((res: any) => {
-  //     console.log(res);
-  //   });
-  // }
-
-  constructor() { }
+  title = 'ProyectoCatalogo';
 }
-

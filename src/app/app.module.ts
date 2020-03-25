@@ -1,61 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// -> Servicios
-import { SeccionService } from './services/seccion.service';
-
-// -> Rutas
-import { APP_ROUTING } from './app.routes';
-
-// -> Componentes
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { SeccionComponent } from './seccion/seccion.component';
-import { FormSeccionComponent } from './form-seccion/form-seccion.component';
-import { TablaSeccionComponent } from './tabla-seccion/tabla-seccion.component';
-import { FormAreaComponent } from './form-area/form-area.component';
-import { TablaAreaComponent } from './tabla-area/tabla-area.component';
-import { AreaComponent } from './area/area.component';
+import { CatalogoSeccionComponent } from './seccion/catalogo-seccion/catalogo-seccion.component';
+import { CatalogoAreaComponent } from './area/catalogo-area/catalogo-area.component';
 import { CatalogosComponent } from './catalogos/catalogos.component';
-import { FooterComponent } from './footer/footer.component';
-import { EditarSeccionComponent } from './editar-seccion/editar-seccion.component';
-import { EditarAreaComponent } from './editar-area/editar-area.component';
-import { ModalEditarComponent } from './modal-editar/modal-editar.component';
-import { BusquedaSeccionComponent } from './busqueda-seccion/busqueda-seccion.component';
-
+import { FormSeccionComponent } from './seccion/form-seccion/form-seccion.component';
+import { TablaSeccionComponent } from './seccion/tabla-seccion/tabla-seccion.component';
+import { EditarSeccionComponent } from './seccion/editar-seccion/editar-seccion.component';
+import { FiltrarSeccionComponent } from './seccion/filtrar-seccion/filtrar-seccion.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CatalogoSeccionComponent,
+    CatalogoAreaComponent,
     CatalogosComponent,
-    SeccionComponent,
-    MenuComponent,
     FormSeccionComponent,
     TablaSeccionComponent,
-    FormAreaComponent,
-    TablaAreaComponent,
-    AreaComponent,
-    FooterComponent,
     EditarSeccionComponent,
-    EditarAreaComponent,
-    ModalEditarComponent,
-    BusquedaSeccionComponent
+    FiltrarSeccionComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    APP_ROUTING,
-    // NgbModule
-
+    AppRoutingModule,
   ],
-  providers: [
-    SeccionService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
