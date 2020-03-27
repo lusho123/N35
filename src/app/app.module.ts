@@ -2,59 +2,41 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// -> Servicios
-import { SeccionService } from './services/seccion.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
-// -> Rutas
-import { APP_ROUTING } from './app.routes';
-
-// -> Componentes
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
 import { SeccionComponent } from './seccion/seccion.component';
-import { FormSeccionComponent } from './form-seccion/form-seccion.component';
-import { TablaSeccionComponent } from './tabla-seccion/tabla-seccion.component';
-import { FormAreaComponent } from './form-area/form-area.component';
-import { TablaAreaComponent } from './tabla-area/tabla-area.component';
-import { AreaComponent } from './area/area.component';
-import { CatalogosComponent } from './catalogos/catalogos.component';
+import { FormSeccionComponent } from './seccion/form-seccion/form-seccion.component';
+import { FiltrarSeccionComponent } from './seccion/filtrar-seccion/filtrar-seccion.component';
+import { TablaSeccionComponent } from './seccion/tabla-seccion/tabla-seccion.component';
+import { EditarSeccionComponent } from './seccion/editar-seccion/editar-seccion.component';
+import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { EditarSeccionComponent } from './editar-seccion/editar-seccion.component';
-import { EditarAreaComponent } from './editar-area/editar-area.component';
-import { ModalEditarComponent } from './modal-editar/modal-editar.component';
-import { BusquedaSeccionComponent } from './busqueda-seccion/busqueda-seccion.component';
-
+import { ComponentesService } from './services/componentes.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogosComponent,
     SeccionComponent,
-    MenuComponent,
     FormSeccionComponent,
+    FiltrarSeccionComponent,
     TablaSeccionComponent,
-    FormAreaComponent,
-    TablaAreaComponent,
-    AreaComponent,
-    FooterComponent,
     EditarSeccionComponent,
-    EditarAreaComponent,
-    ModalEditarComponent,
-    BusquedaSeccionComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    APP_ROUTING,
-    // NgbModule
-
+    NgxPaginationModule
   ],
   providers: [
-    SeccionService
+    ComponentesService
   ],
   bootstrap: [AppComponent]
 })

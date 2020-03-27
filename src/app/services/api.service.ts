@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Catalogo   } from './Catalogo';
-import { areas } from './area.json.js';
-import { secciones  } from './seccion.json.js';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Catalogo } from '../interfaces/Catalogo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   /**
    * Regresa todos los catalogos de la base de datos.
@@ -45,8 +41,8 @@ export class ApiService {
    * @param url URL de End Point
    * @param descripcion String con la descripción del catalogo.
    */
-  postCatalogo(url: string, descripcion: string) {
-    const opciones = { descripcion, idUsuarioAlta: 1 };
+  postCatalogo(url: string, descripcion: string, idUsuarioAlta: number) {
+    const opciones = { descripcion, idUsuarioAlta };
     return this.http.post<Catalogo>(url, opciones);
   }
 
@@ -75,73 +71,4 @@ export class ApiService {
   deleteCatalogo(url: string) {
     return this.http.delete(url);
   }
-
-// ********************************************************************* //
-// Cotiene datos de la primer version                                    /
-
-  // private areas: Catalogo[];
-  // private secciones: Catalogo[];
-  
-  // constructor() {
-  //   this.area = areas;
-  //   this.seccion = secciones;
-  //  }
-
-
-  // getArea(url: string): Observable<Catalogo []> {
-  //   return this.http.get<Catalogo []>(url);
-  // }
-
-  // getSeccion(url: string): Observable<Catalogo []> {
-  //   return this.http.get<Catalogo []>(url);
-  // }
-
-  // postArea(url: string, descripcion: string) {
-  //   const jsonArea = {
-  //       descripcion,
-  //       idUsuarioAlta: this.usuario
-  //   };
-  //   return this.http.post<Catalogo>(url, jsonArea);
-  // }
-
-  // postSeccion(url: string, descripcion: string): Observable<Catalogo>{
-  //   const jsonSeccion = {
-  //       descripcion,
-  //       idUsuarioAlta: this.usuario,
-  //     };
-  //   return this.http.post<Catalogo>(url, jsonSeccion);
-  // }
-
-  // deleteSeccion(url: string, id: string) {
-  //   // const httpParams = new HttpParams().set('id', id);
-  //   const options = { params: new HttpParams().set('id', id) };
-  //   return this.http.delete(url, options);
-  // }
-
- 
-  // actualizaTArea(): Observable<Catalogo> {
-  //   return of(this.area);
-  // }
-
-  // actualizaArea(area: Catalogo): Observable<Catalogo> {
-  //   this.area = area;
-  //   return of(this.area);
-  // }
-
-
-
-  // getArea(): Observable<Catalogo[]>{
-  //   return of(this.area);
-  // }
-
-  // postArea(area: Catalogo): Observable<Catalogo[]> {
-  //   this.area.push(area);
-  //   return of(this.area);
-  // }
-
-  // postSecciones(seccion: Catalogo) {
-  //   this.seccion.push(seccion);
-  //   return of(this.area);
-  // }
-
 }

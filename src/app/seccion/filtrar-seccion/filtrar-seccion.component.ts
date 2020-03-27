@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltrarSeccionComponent implements OnInit {
 
+  // Por construir.....
+
   constructor() { }
 
   ngOnInit() {

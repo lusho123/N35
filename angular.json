@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Prueba1": {
+    "ProyectoN35": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,25 +13,26 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Prueba1",
+            "outputPath": "dist/ProyectoN35",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
               "src/assets/css/bootstrap.min.css",
+              "src/styles.css"
             ],
-            "scripts": [ 
+            "scripts": [
               "src/assets/js/jquery-3.3.1.slim.min.js",
-              "src/assets/js/bootstrap.min.js",
               "src/assets/js/popper.min.js",
-              "src/assets/js/helpers.js"
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/helpers.js",
+              "src/assets/js/all.min.js"
             ]
           },
           "configurations": {
@@ -47,7 +48,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Prueba1:build"
+            "browserTarget": "ProyectoN35:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Prueba1:build:production"
+              "browserTarget": "ProyectoN35:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Prueba1:build"
+            "browserTarget": "ProyectoN35:build"
           }
         },
         "test": {
@@ -117,15 +117,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Prueba1:serve"
+            "devServerTarget": "ProyectoN35:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Prueba1:serve:production"
+              "devServerTarget": "ProyectoN35:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "Prueba1"
+  "defaultProject": "ProyectoN35"
 }

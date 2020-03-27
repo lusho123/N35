@@ -1,21 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Catalogo } from '../services/Catalogo';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-seccion',
-  templateUrl: './seccion.component.html'
+  templateUrl: './seccion.component.html',
+  styleUrls: ['./seccion.component.css']
 })
 export class SeccionComponent implements OnInit {
 
-  @Input()
-  cata: boolean;
+  constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
-
-  constructor() {  }
-
 
 }
